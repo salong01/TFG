@@ -7,7 +7,7 @@ const Sequelize = require('sequelize');
 
 // Option 1: Passing parameters separately
 const sequelize = new Sequelize('ComicVerse', 'Saul', 'hUo9WTMaaCL5a1o0', {
-  host: '192.168.1.36',
+  host: '192.168.1.39',
   dialect: 'mysql'
 });
 
