@@ -6,7 +6,7 @@ const port= 3000;
 const Sequelize = require('sequelize');
 
 // Option 1: Passing parameters separately
-const sequelize = new Sequelize('ComicVerse', 'Saul', 'hUo9WTMaaCL5a1o0', {
+const sequelize = new Sequelize('ComicVerse', 'saul', 'nzhZW8PMwRjSLsbj', {
   host: '192.168.1.39',
   dialect: 'mysql'
 });
@@ -89,8 +89,8 @@ sequelize
     modelName: 'heroUser'
   });
 
-  User.hasMany(HeroUser);
-  Hero.hasMany(HeroUser);
+  Users.hasMany(HeroUser);
+  Heroes.hasMany(HeroUser);
   //HeroUser.belongsTo(Hero);
 
   sequelize.sync({force: false});
