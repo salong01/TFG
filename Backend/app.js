@@ -6,8 +6,8 @@ const port= 3000;
 const Sequelize = require('sequelize');
 
 // Option 1: Passing parameters separately
-const sequelize = new Sequelize('ComicVerse', 'saul', 'Cr804tFHvT2ihts8', {
-  host: 'localhost',
+const sequelize = new Sequelize('ComicVerse', 'saul', 'uLEmomJAL2BGj2XL', {
+  host: '192.168.1.129',
   dialect: 'mysql'
 });
 
