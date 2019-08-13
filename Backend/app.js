@@ -89,9 +89,25 @@ sequelize
     modelName: 'heroUser'
   });
 
+  class Comics extends Model {}
+    Comics.init({
+      name :{
+        type: Sequelize.STRING,
+        primaryKey: true,
+        allowNull: false
+      },
+      description:{
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      image:{
+        type:sequelize.STRING
+      }
+  });
+ 
+
   Users.hasMany(HeroUser);
   Heroes.hasMany(HeroUser);
-  //HeroUser.belongsTo(Hero);
 
   sequelize.sync({force: false});
 
@@ -107,8 +123,63 @@ app.use(function(req, res, next) {
   res.setHeader('Access-Control-Allow-Credentials', true);
   next();
 });
+//POST http://localhost:3000/register 
+app.post('/register', function(req,res){
+  console.log(req.body)
 
+  let errorLogin = 'error';
+
+  User.findAll({
+    where: {
+      userID: req.body.user
+    }
+  }).then(data =>{
+    if(isEmpty(data)==true || data === undefined){
+
+      User.create({
+          userID : req.body.user,
+          nameID : req.body.name,
+          pass: req.body.password,
+          birth: req.body.date,
+          email: req.body.email
+      }).then(data => {
+        res.send(data);
+      })
+      .catch(err => {
+        res.send();
+        console.log("There was an error registering the user on DB", err);
+        res.status(500).end();   
+       }) ; 
+
+    }else{
+      res.send(errorLogin);
+      console.log("The user is already registered");
+      res.status(500).end();   
+    } 
+  });
+});
+
+//POST http://localhost:3000/login
+app.get('/login', function(req,res){
+  
+  console.log("USER LOGIN \n");
+
+  let errorLogin = 'error';
+
+  User.findAll({
+      where: {
+        nameID: req.query.ID
+      }
+    }).then(data =>{
+      if(isEmpty(data)==true || data === undefined){
+        res.send(errorLogin);
+        res.status(500).end();
+      }else{
+        res.send(data);
+      }
+     
+    });
+});
 app.listen(port, function () {
     console.log('ComicVerse app listening on port '+port+'!\n\n');
-  });
-  
+});  
