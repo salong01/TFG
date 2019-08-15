@@ -3,7 +3,7 @@
    <v-app light>
     <v-content>
       <section>
-        <v-parallax src="assets/Marvel.jpg" height="600">
+        <v-parallax src="../assets/IronMan.jpg" height="600">
           <v-layout
             column
             align-center
@@ -17,7 +17,6 @@
               color="blue lighten-2"
               dark
               large
-              href="/pre-made-themes"
             >
               Get Started
             </v-btn>
@@ -95,19 +94,18 @@
       </section>
 
       <section>
-        <v-parallax src="assets/IronMan.jpg" height="380">
+        <v-parallax src="../assets/IronSpider.jpg" height="380">
           <v-layout column align-center justify-center>
             <div class="headline white--text mb-4 text-center">Web development has never been easier</div>
             <em>Kick-start your application today</em>
-            <v-btn
+            <router-link to="/"><v-btn
               class="mt-12"
               color="blue lighten-2"
               dark
               large
-              href="/pre-made-themes"
             >
               Get Started
-            </v-btn>
+            </v-btn></router-link>
           </v-layout>
         </v-parallax>
       </section>

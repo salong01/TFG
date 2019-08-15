@@ -21,6 +21,7 @@ sequelize
   });
 
   const Model = Sequelize.Model;
+
   class Users extends Model {}
   Users.init({
     userID: {
@@ -43,6 +44,10 @@ sequelize
     birth: {
         type: Sequelize.DATE,
         allowNull:false
+    },
+    rol: {
+      type: sequelize.STRING,
+      defaultValue: "user"
     }
   }, {
     sequelize,
@@ -102,6 +107,13 @@ sequelize
       },
       image:{
         type:sequelize.STRING
+      },
+      date:{
+        type: Sequelize.DATE,
+      },
+      faction: {
+        type: sequelize.STRING,
+        allowNull: true
       }
   });
  

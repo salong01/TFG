@@ -1,8 +1,7 @@
 <template>
   <v-app>
-    <router-view />
     <v-app-bar app>
-      <v-toolbar class="yellow darken-2">
+      <v-toolbar class="red darken-2">
         <v-toolbar-side-icon></v-toolbar-side-icon>
         <v-toolbar-title>Comic-Verse</v-toolbar-title>
         <v-menu :nudge-width="100">
@@ -14,23 +13,23 @@
           </template>
           <span>Tooltip</span>
         </v-tooltip>
-        <v-toolbar-items class="hidden-sm-and-down">
+        <!--<v-toolbar-items class="hidden-sm-and-down">-->
           <v-btn flat>Marvel</v-btn>
-        </v-toolbar-items>
+        <!--</v-toolbar-items>-->
         <v-text-field hide-details prepend-icon="search" single-line clearable>
           <template v-slot:label>
             Prueba a buscar un personaje aquí
           </template>
         </v-text-field>
-        <div v-if="id==null"> 
-        <router-link to="/login" :idPassed = 'id'>Login</router-link> |
-        <router-link to="/register">Register</router-link>
-      </div>
+        <div id= "router" v-if="id==null">
+            <router-link to="/login" :idPassed='id'>Login</router-link> |
+            <router-link to="/register">Register</router-link>
+        </div>
       </v-toolbar>
     </v-app-bar>
 
     <v-content>
-      <Initial />
+      <router-view />
     </v-content>
   </v-app>
 </template>
@@ -38,25 +37,18 @@
 <script>
   import 'material-design-icons-iconfont/dist/material-design-icons.css'
   import '@mdi/font/css/materialdesignicons.css'
-  
+
   import Vue from 'vue'
   import Vuetify from 'vuetify/lib'
 
-  Vue.use(Vuetify)
-
-  import Login from './views/LoginView';
-  import Register from './views/RegisterView';
-  import Initial from './views/InitialView';
+  Vue.use(Vuetify);
 
   export default {
     name: 'App',
     components: {
-      Login,
-      Register,
-      Initial
     },
     data: () => ({
-      id: ''
+      id: null,
     }),
   };
 </script>
