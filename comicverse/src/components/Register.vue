@@ -122,7 +122,7 @@
                                 alert('Usuario registrado correctamente');
                                 this.$emit("sendData", this.id)
                                 //let url = '/user/' + this.id;
-                                this.$router.push('/home')
+                                this.$router.push('/home');
                             }
 
                         })

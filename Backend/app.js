@@ -94,6 +94,15 @@ sequelize
     modelName: 'heroUser'
   });
 
+  class Rol extends Model{}
+    Rol.init({
+      rol: {
+        type: sequelize.STRING,
+        primaryKey: true,
+        allowNull:false
+      }
+    });
+
   class Comics extends Model {}
     Comics.init({
       name :{
