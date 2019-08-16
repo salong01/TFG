@@ -55,8 +55,8 @@ sequelize
   });
   
 
-  class Heroes extends Model {}
-  Heroes.init({
+  class Characters extends Model {}
+  Characters.init({
     name: {
       type: Sequelize.STRING,
       primaryKey: true,
@@ -84,14 +84,21 @@ sequelize
     
   }, {
     sequelize,
-    modelName: 'heroes'
+    modelName: 'characters'
   });
 
-  class HeroUser extends Model {}
-  HeroUser.init({
+  class subscriptionsCharac extends Model {}
+   subscriptionsCharac.init({
   }, {
     sequelize,
-    modelName: 'heroUser'
+    modelName: 'subsCharac'
+  });
+
+  class subscriptionsComics extends Model {}
+   subscriptionsComics.init({
+  }, {
+    sequelize,
+    modelName: 'subsComics'
   });
 
   class Rol extends Model{}
@@ -101,6 +108,9 @@ sequelize
         primaryKey: true,
         allowNull:false
       }
+    },{
+      sequelize,
+      modelName: 'rol'
     });
 
   class Comics extends Model {}
@@ -124,11 +134,17 @@ sequelize
         type: sequelize.STRING,
         allowNull: true
       }
-  });
+  },{
+    sequelize,
+    modelName:'comics'
+  }
+  );
  
-
-  Users.hasMany(HeroUser);
-  Heroes.hasMany(HeroUser);
+  Users.hasMany(subscriptionsCharac);
+  Characters.hasMany(subscriptionsCharac);
+  Users.hasMany(subscriptionsComics);
+  Comics.hasMany(subscriptionsComics);
+  Users.hasOne(Rol,{as: 'rol'});
 
   sequelize.sync({force: false});
 
