@@ -6,8 +6,8 @@ const port= 3000;
 const Sequelize = require('sequelize');
 
 // Option 1: Passing parameters separately
-const sequelize = new Sequelize('ComicVerse', 'saul', 'uLEmomJAL2BGj2XL', {
-  host: '192.168.1.129',
+const sequelize = new Sequelize('comicverse', 'saul', 'RIiIrLyNAliLpM6g', {
+  host: '192.168.1.42',
   dialect: 'mysql'
 });
 
@@ -45,10 +45,6 @@ sequelize
         type: Sequelize.DATE,
         allowNull:false
     },
-    rol: {
-      type: sequelize.STRING,
-      defaultValue: "user"
-    }
   }, {
     sequelize,
     modelName: 'users'
@@ -74,12 +70,10 @@ sequelize
       type: Sequelize.STRING,
       allowNull: false
     },
-    category: {
-      type: Sequelize.STRING,
-      allowNull: false
-    },
-    faction: {
-        type: Sequelize.STRING
+    views:{
+      type: Sequelize.INTEGER,
+      allowNull:false,
+      defaultValue: 0
     }
     
   }, {
@@ -104,15 +98,26 @@ sequelize
   class Rol extends Model{}
     Rol.init({
       rol: {
-        type: sequelize.STRING,
+        type: Sequelize.STRING,
         primaryKey: true,
         allowNull:false
       }
     },{
       sequelize,
-      modelName: 'rol'
+      modelName: 'Rol'
     });
 
+  class Faction extends Model {}
+    Faction.init({
+      name:{
+        type: Sequelize.STRING,
+        primaryKey:true,
+        allowNull:false
+      }
+    },{
+      sequelize,
+      modelName: 'Rol'
+    });
   class Comics extends Model {}
     Comics.init({
       name :{
@@ -125,14 +130,15 @@ sequelize
         allowNull: false
       },
       image:{
-        type:sequelize.STRING
+        type:Sequelize.STRING
       },
       date:{
         type: Sequelize.DATE,
       },
-      faction: {
-        type: sequelize.STRING,
-        allowNull: true
+      views:{
+        type: Sequelize.INTEGER,
+        allowNull:false,
+        defaultValue: 0
       }
   },{
     sequelize,
@@ -144,10 +150,11 @@ sequelize
   Characters.hasMany(subscriptionsCharac);
   Users.hasMany(subscriptionsComics);
   Comics.hasMany(subscriptionsComics);
-  Users.hasOne(Rol,{as: 'rol'});
+  Users.belongsTo(Rol);
+  Characters.hasOne(Faction);
+  Comics.hasOne(Faction);
 
-  sequelize.sync({force: false});
-
+  sequelize.sync({force: true});
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
