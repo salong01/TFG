@@ -1,6 +1,6 @@
 <template>
     <v-app id="inspire" class="background">
-        <v-img src="../assets/CapAmericaHappy.jpg" height="100%" width="100%">
+        <v-img src="../assets/heroes/CapAmericaHappy.jpg" height="100%" width="100%">
             <v-content>
                 <v-container>
                     <v-layout align-left justify-left>

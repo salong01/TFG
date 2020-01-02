@@ -3,7 +3,7 @@
    <v-app light>
     <v-content>
       <section>
-        <v-parallax src="../assets/IronMan.jpg" height="600">
+        <v-parallax src="../assets/heroes/IronMan.jpg" height="600">
           <v-layout
             column
             align-center
@@ -94,7 +94,7 @@
       </section>
 
       <section>
-        <v-parallax src="../assets/IronSpider.jpg" height="380">
+        <v-parallax src="../assets/heroes/IronSpider.jpg" height="380">
           <v-layout column align-center justify-center>
             <div class="headline white--text mb-4 text-center">Web development has never been easier</div>
             <em>Kick-start your application today</em>
