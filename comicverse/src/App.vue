@@ -3,10 +3,9 @@
     <v-app-bar app>
       <v-toolbar class="red darken-2">
         <!--v-toolbar-side-icon></v-toolbar-side-icon-->
-        <v-toolbar-title >Comic-Verse</v-toolbar-title>
-        <v-menu :nudge-width="100">
-        </v-menu>
-        <v-spacer></v-spacer>
+        <v-toolbar-title>MARVEL</v-toolbar-title>
+        <v-menu :nudge-width="100" />
+        <v-spacer />
         <!--v-tooltip bottom>
           <template v-slot:activator="{ on }">
             <v-icon color="primary" dark v-on="on">home</v-icon>
@@ -21,13 +20,9 @@
            Marvel
          </v-button>
         </router-link-->
-        <v-btn
-          color="deep-purple accent-4"
-          background-color="yellow darken-2"
-          text
-          @click="goHome"
-        >
-          MARVEL
+        <v-icon>home</v-icon>
+        <v-btn color="lime darken-1" text @click="goHome">
+          Comic-verse
         </v-btn>
         <!--</v-toolbar-items>-->
         <!--v-text-field hide-details prepend-icon="search" single-line clearable>
@@ -35,20 +30,26 @@
             Prueba a buscar un personaje aquí
           </template>
         </v-text-field-->
-        <v-spacer></v-spacer>
-        <div id= "search" v-if="id!=null">
-          <v-text-field hide-details prepend-icon="search" single-line clearable>
-            <template v-slot:label>
-              Busca un personaje aquí
-            </template>
-          </v-text-field>
-        </div>
-        <div id= "router" v-if="id==null">
-          <router-link to="/login" :idPassed='id'>Login</router-link> |
+        <v-spacer />
+        <div id="router" v-if="id == null">
+          <router-link to="/login" :idPassed="id">Login</router-link> |
           <router-link to="/register">Register</router-link>
         </div>
-        <div id= "router" v-else-if="id!=null">
-          {{ id }}
+        <div id="router" v-else-if="id != null">
+          <v-btn></v-btn>
+          <!-- <div>
+            <v-text-field
+              hide-details
+              prepend-icon="search"
+              single-line
+              clearable
+            >
+              <template v-slot:label>
+                Busca un personaje aquí
+              </template>
+            </v-text-field>
+          </div> -->
+          Hola, {{ id }}
         </div>
       </v-toolbar>
     </v-app-bar>
@@ -60,25 +61,26 @@
 </template>
 
 <script>
-  import 'material-design-icons-iconfont/dist/material-design-icons.css'
-  import '@mdi/font/css/materialdesignicons.css'
+import "material-design-icons-iconfont/dist/material-design-icons.css";
+import "@mdi/font/css/materialdesignicons.css";
 
-  import Vue from 'vue'
-  import Vuetify from 'vuetify/lib'
+import Vue from "vue";
+import Vuetify from "vuetify/lib";
 
-  Vue.use(Vuetify);
+Vue.use(Vuetify);
 
-  export default {
-    name: 'App',
-    components: {
-    },
-    data: () => ({
-      id: null,
-    }),
-    methods: {
-      goHome () {
-       this.$router.push("/");
-      },
-    },
-  };
+export default {
+  name: "App",
+  components: {},
+  data: () => ({
+    id: "Saúl",
+    comicpage: false,
+    heropage: false
+  }),
+  methods: {
+    goHome() {
+      this.$router.push("/");
+    }
+  }
+};
 </script>

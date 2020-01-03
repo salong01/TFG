@@ -24,7 +24,7 @@ export default new Router({
       component: RegisterView
     },
     {
-      path: "/comic/:id",
+      path: "/initial",
       name: "initial",
       component: InitialView
     },
@@ -35,7 +35,7 @@ export default new Router({
     },
     {
       path: "/hero/:id",
-      name: "comic",
+      name: "hero",
       component: HeroView
     },
     {
