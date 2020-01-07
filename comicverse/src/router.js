@@ -24,17 +24,17 @@ export default new Router({
       component: RegisterView
     },
     {
-      path: "/initial",
+      path: "/",
       name: "initial",
       component: InitialView
     },
     {
-      path: "/",
+      path: "/comic",
       name: "comic",
       component: ComicView
     },
     {
-      path: "/hero/:id",
+      path: "/hero",
       name: "hero",
       component: HeroView
     },

@@ -1,12 +1,7 @@
 <template>
   <v-container>
     <v-row>
-      <v-card
-        :loading="loading"
-        aligment="center"
-        justify="start"
-        max-width="260"
-      >
+      <v-card aligment="center" justify="start" max-width="260">
         <v-img
           height="400"
           width="260"
