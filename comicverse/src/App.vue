@@ -5,7 +5,7 @@
         <!--v-toolbar-side-icon></v-toolbar-side-icon-->
         <v-img
           class="mx-2"
-          :src="require('@/assets/heroes/MarvelLogo.jpg')"
+          :src="require('../public/img/MarvelLogo.jpg')"
           max-height="100"
           max-width="100"
           contain
@@ -42,12 +42,9 @@
           <router-link to="/register">Register</router-link>
         </div>
         <!-- v-else-if="id != null" v-if="heropage == false" v-if="comicpage == false" -->
-        <div id="router">
-          <v-btn id = "heroButton" @click="goHeroes">
-            Heroes</v-btn>
-          <v-btn id = "comicButton" @click="goComics">
-            Comics</v-btn>
-
+        <div id="router" v-else>
+          <v-btn id="heroButton" @click="goHeroes">Heroes</v-btn>
+          <v-btn id="comicButton" @click="goComics">Comics</v-btn>
           <!-- <div>
             <v-text-field
               hide-details
@@ -84,7 +81,7 @@ export default {
   name: "App",
   components: {},
   data: () => ({
-    id: "Saúl",
+    id: null,
     comicpage: false,
     heropage: false
   }),
@@ -92,20 +89,19 @@ export default {
     goHome() {
       //this.heropage = false;
       //this.comicpage = false;
-      
       this.$router.push("/");
     },
     goHeroes() {
       // this.heropage = true;
       // this.comicpage = false;
       // alert("Boton comic pulsado" + this.heropage);
-      this.$router.push("/hero");
+      this.$router.push("/heroes");
     },
     goComics() {
       // this.comicpage = true;
       // this.heropage = false;
       // alert("Boton comic pulsado" + this.heropage);
-      this.$router.push("/comic");
+      this.$router.push("/comics");
     }
   }
 };

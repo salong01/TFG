@@ -1,7 +1,7 @@
 <template>
   <v-app id="inspire" class="background">
     <v-img
-      src="../assets/heroes/CapAmericaHappy.jpg"
+      src="../../public/img/CapAmericaHappy.jpg"
       max-height="1009"
       max-width="1600"
     >
@@ -81,17 +81,17 @@
                     </v-layout>
                     <v-layout row>
                       <v-flex xs12>
-                        <v-date-picker
+                        <v-text-field
+                          type="date"
                           prepend-icon="event"
                           v-model="date"
                           label="Date"
                           name="date"
-                        >
-                        </v-date-picker>
+                        />
                       </v-flex>
                     </v-layout>
 
-                    <v-btn @click="sendData()" dark color="teal">Submit</v-btn>
+                    <v-btn @click="sendData" dark color="teal">Submit</v-btn>
                   </v-form>
                 </v-card-text>
               </v-card>
@@ -124,7 +124,7 @@ export default {
     email: null,
     password: null,
     passsword_confirmation: null,
-    date: "",
+    date: null,
     url: null,
     message: "",
     show: false,
@@ -133,7 +133,8 @@ export default {
     showPasswordConfirmed: false
   }),
   methods: {
-    // sendData() {
+     sendData() {
+       
     //   if (password === passsword_confirmation) {
     //     const userRegister = {
     //       user: this.userId,
@@ -161,7 +162,7 @@ export default {
     //   } else {
     //     alert("the passwords doesn´t match, try again.");
     //   }
-    // }
+     }
   }
 };
 </script>

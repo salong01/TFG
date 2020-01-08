@@ -171,7 +171,7 @@ app.use(function(req, res, next) {
 app.post('/register', function(req,res){
   console.log(req.body)
 
-  let errorLogin = 'error';
+  let errorLogin = 'Este usuario ya está registrado';
 
   User.findAll({
     where: {
@@ -203,16 +203,17 @@ app.post('/register', function(req,res){
   });
 });
 
-//POST http://localhost:3000/login
+//GET http://localhost:3000/login
 app.get('/login', function(req,res){
   
   console.log("USER LOGIN \n");
 
-  let errorLogin = 'error';
+  let errorLogin = 'Esta cuenta no existe';
 
   User.findAll({
       where: {
-        nameID: req.query.ID
+        userID: req.query.userID,
+        pass: req.query.pass
       }
     }).then(data =>{
       if(isEmpty(data)==true || data === undefined){
