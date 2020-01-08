@@ -31,7 +31,7 @@ export default new Router({
     },
     {
       path: "/comics/:id",
-      name: "comics",
+      name: "comic",
       component: ComicView
     },
     {

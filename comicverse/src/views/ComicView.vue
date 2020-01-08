@@ -1,6 +1,6 @@
 <template>
   <div class="ComicView">
-    <Comic msg="pagina de comics" />
+    <Comic msg="pagina de un comic" />
   </div>
 </template>
 

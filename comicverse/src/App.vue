@@ -63,7 +63,7 @@
     </v-app-bar>
 
     <v-content>
-      <router-view />
+      <router-view @UserID="saveUser" />
     </v-content>
   </v-app>
 </template>
@@ -87,21 +87,16 @@ export default {
   }),
   methods: {
     goHome() {
-      //this.heropage = false;
-      //this.comicpage = false;
       this.$router.push("/");
     },
     goHeroes() {
-      // this.heropage = true;
-      // this.comicpage = false;
-      // alert("Boton comic pulsado" + this.heropage);
       this.$router.push("/heroes");
     },
     goComics() {
-      // this.comicpage = true;
-      // this.heropage = false;
-      // alert("Boton comic pulsado" + this.heropage);
       this.$router.push("/comics");
+    },
+    saveUser(id) {
+      this.id = id;
     }
   }
 };

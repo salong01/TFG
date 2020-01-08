@@ -56,14 +56,14 @@ export default {
   }),
   methods: {
     checkCredentials() {
-      alert(this.usuario + " " + this.userId);
-      alert(this.pass + " " + this.password);
-      if (this.usuario == this.userId && this.pass == this.password) {
+      if (this.userId == null || this.password == null) alert("Campos vacios")
+      else if (this.usuario == this.userId && this.pass == this.password) {
         alert("Credenciales correctas");
+        this.$emit("checkCredentials",this.userId);
         this.$router.push("/");
-      } else {
-        alert("No coinciden las credenciales");
-      }
+      } else alert("No coinciden las credenciales");
+      this.userId = null;
+      this.password = null;
     }
   }
 };

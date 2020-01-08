@@ -1,6 +1,6 @@
 <template>
     <div class="RegisterView">
-        <Login msg="Registrate"/>
+        <Login @checkCredentials="UserID" msg="Registrate"/>
     </div>  
 </template>
 
@@ -11,6 +11,11 @@ export default {
     name: "LoginView",
     components:{
         Login
+    },
+    methods: {
+      UserID(id) {
+        this.$emit("UserID", id);
+      }
     }
 };
 </script>

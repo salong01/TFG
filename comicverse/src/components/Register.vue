@@ -133,36 +133,35 @@ export default {
     showPasswordConfirmed: false
   }),
   methods: {
-     sendData() {
-       
-    //   if (password === passsword_confirmation) {
-    //     const userRegister = {
-    //       user: this.userId,
-    //       name: this.name,
-    //       password: this.password.axios,
-    //       email: this.email,
-    //       date: this.date
-    //     };
-    //     axios
-    //       .post("http://localhost:3000/register", userRegister)
-    //       .then(response => {
-    //         if (response.data == "error") {
-    //           alert("Usuario ya registrado, por favor inténtelo de nuevo");
-    //           this.$router.push("/login");
-    //         } else {
-    //           alert("Usuario registrado correctamente");
-    //           this.$emit("sendData", this.id);
-    //           //let url = '/user/' + this.id;
-    //           this.$router.push("/home");
-    //         }
-    //       })
-    //       .catch(error => {
-    //         alert(error);
-    //       });
-    //   } else {
-    //     alert("the passwords doesn´t match, try again.");
-    //   }
-     }
+    sendData() {
+      //   if (password === passsword_confirmation) {
+      //     const userRegister = {
+      //       user: this.userId,
+      //       name: this.name,
+      //       password: this.password.axios,
+      //       email: this.email,
+      //       date: this.date
+      //     };
+      //     axios
+      //       .post("http://localhost:3000/register", userRegister)
+      //       .then(response => {
+      //         if (response.data == "error") {
+      //           alert("Usuario ya registrado, por favor inténtelo de nuevo");
+      //           this.$router.push("/login");
+      //         } else {
+      //           alert("Usuario registrado correctamente");
+      //           this.$emit("sendData", this.id);
+      //           //let url = '/user/' + this.id;
+      //           this.$router.push("/home");
+      //         }
+      //       })
+      //       .catch(error => {
+      //         alert(error);
+      //       });
+      //   } else {
+      //     alert("the passwords doesn´t match, try again.");
+      //   }
+    }
   }
 };
 </script>
